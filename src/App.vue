@@ -9,7 +9,14 @@
         <div style="font-size:40px; font-weight:500; text-align:center;">Oh snap! Something went wrong, please reload the page.</div>
       </div>
       <template v-if="">
-        <AdminMenu/>
+        <sidebar-menu
+          :menu="menu"
+          :collapsed="collapsed"
+          :theme="selectedTheme"
+          :show-one-child="true"
+          @toggle-collapse="onToggleCollapse"
+          @item-click="onItemClick"
+        />
         <div id="page">
           <transition :name="transitionName">
             <router-view :key="$route.fullPath"></router-view>
@@ -45,18 +52,17 @@
 import Snackbar from '@/components/Snackbar';
 import HeaderBar from '@/components/HeaderBar';
 import Projects from '@/components/Projects';
-import AdminMenu from '@/components/AdminMenu';
+import SidebarMenu from '@/components/SidebarMenu';
 import Spinner from '@/components/Spinner';
 import SupportDialog from '@/components/SupportDialog';
 import PdfDropzone from '@/components/PdfDropzone';
-
 export default {
   name: 'app',
   components: {
     Snackbar,
     HeaderBar,
     Projects,
-    AdminMenu,
+    SidebarMenu,
     Spinner,
     SupportDialog,
     PdfDropzone
@@ -66,7 +72,81 @@ export default {
       transitionName: 'fade-back',
       showSupportDialog: false,
       extrasMenuTrigger: null,
-      extrasMenuIsOpen: false
+      extrasMenuIsOpen: false,
+      menu: [
+        {
+          header: true,
+          title: 'Getting Started',
+          hiddenOnCollapse: true
+        },
+        {
+          href: '/dashboard',
+          title: 'Dashboard'
+        },
+        {
+          href: '/profile',
+          title: 'My Profile'
+        },
+        {
+          href: '/users',
+          title: 'Users',
+          icon: 'fa fa-folder',
+          child: [
+            {
+              href: '/page/sub-page-1',
+              title: 'Customers',
+              icon: 'fa fa-file-alt'
+            },
+            {
+              href: '/page/sub-page-2',
+              title: 'Writers',
+              icon: 'fa fa-file-alt'
+            },
+            {
+              href: '/page/sub-page-3',
+              title: 'Editers',
+              icon: 'fa fa-file-alt'
+            }
+          ]
+        },
+        {
+          href: '/courses',
+          title: 'Courses',
+          icon: 'fa fa-cogs'
+        },
+        {
+          href: '/stream',
+          title: 'Activity Stream'
+        },
+        {
+          href: '/messages',
+          title: 'Messages'
+        },
+        {
+          href: '/payment',
+          title: 'Payment'
+        },
+        {
+          href: '/referrals',
+          title: 'Referrals'
+        },
+        {
+          href: '/settings',
+          title: 'Settings'
+        }
+      ],
+      collapsed: false,
+      themes: [
+        {
+          name: 'Default theme',
+          input: ''
+        },
+        {
+          name: 'White theme',
+          input: 'white-theme'
+        }
+      ],
+      selectedTheme: 'white-theme'
     }
   },
   computed: {
@@ -91,6 +171,7 @@ export default {
 
 <style lang="scss">
   @import '/variables.scss';
+  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 
   html { overflow:hidden; }
   body { color:#2a3c4e; font-family: 'Roboto', sans-serif; font-size:15px; }
@@ -226,4 +307,32 @@ export default {
   .fade-enter, .fade-leave-to {  opacity: 0 }
 
   .no-transition-enter-active, .no-transition-leave-active { transition: none; }
+  #demo {
+  padding-left: 350px;
+}
+#demo.collapsed {
+  padding-left: 50px;
+}
+
+.demo {
+  padding: 50px;
+}
+
+.container {
+  max-width: 600px;
+}
+.v-sidebar-menu {
+  position: relative;
+  top: 64px !important;
+}
+
+pre {
+  font-family: Consolas, monospace;
+  color: #000;
+  background: #fff;
+  border-radius: 2px;
+  font-size: 13px;
+  padding: 5px;
+  overflow: auto;
+}
 </style>
