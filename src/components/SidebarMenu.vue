@@ -1,13 +1,13 @@
 <template>
   <div class="projects">    
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'dashboard' ? 'selected' : ''" @click="getFolderName" id="dashboard" @contextmenu.prevent="toggleContextMenu"  draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'dashboard' ? 'selected1' : ''" @click="getFolderName" id="dashboard" @contextmenu.prevent="toggleContextMenu"  draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Dashboard" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'profile' ? 'selected' : ''" @click="getFolderName" id="profile" @contextmenu.prevent="toggleContextMenu" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'profile' ? 'selected2' : ''" @click="getFolderName" id="profile" @contextmenu.prevent="toggleContextMenu" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="My Profile" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
@@ -27,56 +27,56 @@
         </div>
       </div>      
       <div v-show="isOpen" class="project-row n1"   draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-        <div class="project-row-btn" :class="folderName === 'customers' ? 'selected' : ''" @click="getFolderName" id="customers" draggable="false">
+        <div class="project-row-btn" :class="folderName === 'customers' ? 'selected3' : ''" @click="getFolderName" id="customers" draggable="false">
           <i></i>
           <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Customers" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
       <div v-show="isOpen" class="project-row n2"   draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-        <div class="project-row-btn" :class="folderName === 'writers' ? 'selected' : ''" @click="getFolderName" id="writers" draggable="false">
+        <div class="project-row-btn" :class="folderName === 'writers' ? 'selected3' : ''" @click="getFolderName" id="writers" draggable="false">
           <i></i>
           <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Writers" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
       <div v-show="isOpen" class="project-row n3"  draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-        <div class="project-row-btn" :class="folderName === 'editors' ? 'selected' : ''" @click="getFolderName" id="editors" draggable="false">
+        <div class="project-row-btn" :class="folderName === 'editors' ? 'selected3' : ''" @click="getFolderName" id="editors" draggable="false">
           <i></i>
           <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Editors" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'courses' ? 'selected' : ''"  id="courses" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'courses' ? 'selected4' : ''"  id="courses" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Courses" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'stream' ? 'selected' : ''" id="stream" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'stream' ? 'selected5' : ''" id="stream" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Activity Stream" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'messages' ? 'selected' : ''" id="messages" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'messages' ? 'selected6' : ''" id="messages" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Messages" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'payment' ? 'selected' : ''" id="payment" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'payment' ? 'selected7' : ''" id="payment" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Payment" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'referrals' ? 'selected' : ''" id="referrals" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'referrals' ? 'selected8' : ''" id="referrals" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Referrals" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="folderName === 'settings' ? 'selected' : ''" id="settings" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === 'settings' ? 'selected9' : ''" id="settings" @contextmenu.prevent="toggleContextMenu" @click="getFolderName" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Settings" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
@@ -310,11 +310,35 @@ export default {
       }
     }
   }
-  .project-folder-btn.selected {
-    background-color: rgba(63,81,181,.3);
+  .project-folder-btn.selected1 {
+    background:rgba(103, 58, 183, 0.3);
   }
-  .project-row-btn.selected {
-    background-color: rgba(63,81,181,.3);
+  .project-folder-btn.selected2 {
+    background:rgba(63, 81, 181, 0.3);
+  }
+  .project-folder-btn.selected3 {
+    background:rgba(0, 150, 136, 0.3);
+  }
+  .project-folder-btn.selected4 {
+    background:rgba(76, 175, 80, 0.3);
+  }
+  .project-folder-btn.selected5 {
+    background:rgba(205, 220, 57, 0.3);
+  }
+  .project-folder-btn.selected6 {
+    background:rgba(255, 193, 7, 0.3);
+  }
+  .project-folder-btn.selected7 {
+    background:rgba(255, 152, 0, 0.3);
+  }
+  .project-folder-btn.selected8 {
+    background:rgba(255, 87, 34, 0.3);
+  }
+  .project-folder-btn.selected9 {
+    background:rgba(232, 32, 99, 0.3);
+  }
+  .project-row-btn.selected3 {
+    background:rgba(0, 150, 136, 0.3);
   }
   .project-folder {
     .project-row { padding:0; 
