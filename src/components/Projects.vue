@@ -9,8 +9,8 @@
       </span>
     </button>
     <div ref="projectRows">
-      <div v-for="directoryEntry in directoryEntries" :key="directoryEntry.name || directoryEntry.project.id">
-        <ProjectsRow v-if="directoryEntry.type === 'project'" :ref="'project_' + directoryEntry.project.id" :project="directoryEntry.project" :isSelected="selectedProject && selectedProject === directoryEntry.project" @onMoveProject="onMoveProject" @onCreateFolder="onCreateFolder" @onMoveFolder="onMoveFolder"/>
+      <div>
+        <ProjectsRow @onMoveProject="onMoveProject" @onCreateFolder="onCreateFolder" @onMoveFolder="onMoveFolder"/>
         <ProjectsFolder v-if="directoryEntry.type === 'folder'" :ref="'folder_' + directoryEntry.name" :name="directoryEntry.name" :projects="directoryEntry.projects" @onRenameFolder="onRenameFolder" @onUngroupFolder="onUngroupFolder(directoryEntry)" @onMoveProject="onMoveProject">
           <ProjectsRow v-for="project in directoryEntry.projects" :key="project.id" :ref="'project_' + project.id" :project="project" :folder="true" :isSelected="selectedProject && selectedProject === project" @onDelete="deleteProject(project)" @onMoveProject="onMoveProject" @onCreateFolder="onCreateFolder" />
         </ProjectsFolder>
@@ -56,19 +56,23 @@ export default {
       for (let i = 0; i < this.user.projects.length; i++) {
         const project = this.user.projects[i];
         if (project.folderName) {
-          const folder = {
-            type: 'folder',
-            name: project.folderName,
-            projects: [project]
-          };
           // now check the next project to see if anymore need to go in here
           while (this.user.projects[i + 1] && this.user.projects[i + 1].folderName === project.folderName) {
             folder.projects.push(this.user.projects[i + 1]);
             i++;
           }
+          const folder = {
+            type: 'folder',
+            name: 'project',
+            projects: [{id: 123, name: 'firstpro'}]
+          };
           directoryTree.push(folder);
         } else {
           // no folder, just add
+          const project = {
+            id: 'nD9Yer',
+            name: 'angel'
+          };
           directoryTree.push({type: 'project', project: project});
         }
       }

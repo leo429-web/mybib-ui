@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <Snackbar />
-    
+    <Snackbar />    
     <HeaderBar/>
-
     <main>
       <Spinner v-if="user.isLoading"></Spinner>
       <div v-if="!user.isLoading && user.wasError" style="align-items:center; bottom:0; display:flex; flex-direction:column; justify-content:center; left:0; position:absolute; right:0; top:0;">
         <div style="font-size:140px;">☹️</div>
         <div style="font-size:40px; font-weight:500; text-align:center;">Oh snap! Something went wrong, please reload the page.</div>
       </div>
-      <template v-if="!user.isLoading && user.isReady">
-        <Projects/>
+      <template v-if="">
+        <AdminMenu/>
         <div id="page">
           <transition :name="transitionName">
             <router-view :key="$route.fullPath"></router-view>
@@ -47,6 +45,7 @@
 import Snackbar from '@/components/Snackbar';
 import HeaderBar from '@/components/HeaderBar';
 import Projects from '@/components/Projects';
+import AdminMenu from '@/components/AdminMenu';
 import Spinner from '@/components/Spinner';
 import SupportDialog from '@/components/SupportDialog';
 import PdfDropzone from '@/components/PdfDropzone';
@@ -57,6 +56,7 @@ export default {
     Snackbar,
     HeaderBar,
     Projects,
+    AdminMenu,
     Spinner,
     SupportDialog,
     PdfDropzone
