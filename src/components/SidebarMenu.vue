@@ -13,7 +13,7 @@
       </div>      
     </div>
     <div class="project-folder" :class="{hovering: isHoveringOver}">
-      <div class="project-folder-btn" :class="{ open:isOpen }" @click="toggleFolderState" @contextmenu.prevent="toggleContextMenu" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" style="border-color:#009688;" :class="{ open:isOpen }" @click="toggleFolderState" @contextmenu.prevent="toggleContextMenu" draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons">{{ isOpen ? 'folder_open' : 'folder' }}</i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Users" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
         <div class="project-folder-icons-right">
@@ -202,6 +202,18 @@ export default {
 
 <style lang="scss">
 @import '../variables.scss';
+#dashboard { border-color: #673AB7 }
+#profile { border-color: #3F51B5 }
+#writers { border-color: #009688 }
+#editors { border-color: #009688 }
+#customers { border-color: #009688 }
+#courses { border-color: #4CAF50 }
+#stream { border-color: #CDDC39 }
+#messages { border-color: #FF9800 }
+#payment { border-color: #FF5722 }
+#referrals { border-color: #E91E63 }
+#settings { border-color: #9C27B0 }
+  
 .projects { background:#F5F7F9; bottom:0; left:0; overflow-y:auto; overflow-x:hidden; position:absolute; padding:20px 20px 46px 0; top:0; width:304px;
   .new-project-btn { border-radius:0 30px 30px 0; height:53px; margin-bottom:3px; padding:0 10px 0 12px; width:100%; z-index:2;
     i { margin:0 17px 0 0; }
@@ -214,7 +226,7 @@ export default {
 .project-folder { padding: 3px 0; position:relative;
   .project-folder-btn { align-items: center; background:#ffffff; border-left:4px solid $secondary-color; border-radius:0 100px 100px 0; box-shadow:0 1px 2px rgba(0,0,0,0.2); cursor:pointer; display:flex; height:53px; padding:0 16px; width:100%;
     .project-folder-icon-left { color:$secondary-color; left:-2px; position:relative; text-align:left; width:34px; }
-    .project-folder-title { background:transparent; border:none; color:inherit; cursor:inherit; margin-right:24px; overflow: hidden; pointer-events: none; text-overflow: ellipsis; white-space: nowrap; width:146px; // this is to keep Edge happy
+    .project-folder-title { font-weight:400;background:transparent; border:none; color:inherit; cursor:inherit; margin-right:24px; overflow: hidden; pointer-events: none; text-overflow: ellipsis; white-space: nowrap; width:146px; // this is to keep Edge happy
       &.is-renaming { cursor:text; font-style: italic; pointer-events: all; }
     }
     .project-folder-icons-right { align-items:center; display:flex; position:absolute; top:17px; right:10px;
@@ -311,30 +323,39 @@ export default {
     }
   }
   .project-folder-btn.selected1 {
+    &.project-title { font-weight: 500 !important; }
     background:rgba(103, 58, 183, 0.3);
   }
   .project-folder-btn.selected2 {
+    font-weight: 500;
     background:rgba(63, 81, 181, 0.3);
   }
   .project-folder-btn.selected3 {
+    font-weight: 500;
     background:rgba(0, 150, 136, 0.3);
   }
   .project-folder-btn.selected4 {
+    font-weight: 500;
     background:rgba(76, 175, 80, 0.3);
   }
   .project-folder-btn.selected5 {
+    font-weight: 500;
     background:rgba(205, 220, 57, 0.3);
   }
   .project-folder-btn.selected6 {
+    font-weight: 500;
     background:rgba(255, 193, 7, 0.3);
   }
   .project-folder-btn.selected7 {
+    font-weight: 500;
     background:rgba(255, 152, 0, 0.3);
   }
   .project-folder-btn.selected8 {
+    font-weight: 500;
     background:rgba(255, 87, 34, 0.3);
   }
   .project-folder-btn.selected9 {
+    font-weight: 500;
     background:rgba(232, 32, 99, 0.3);
   }
   .project-row-btn.selected3 {
