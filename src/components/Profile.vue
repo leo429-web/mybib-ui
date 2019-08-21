@@ -402,6 +402,10 @@
 														<input type="text" placeholder="Doe" class="form-control" />
 													</div>
 													<div class="form-group">
+														<label class="control-label">Phone Number</label>
+														<input type="text" placeholder="+1 646 580 6284" class="form-control" />
+													</div>
+													<div class="form-group">
 														<label class="control-label">Student ID</label>
 														<input type="text" placeholder="87363980" class="form-control" />
 													</div>
