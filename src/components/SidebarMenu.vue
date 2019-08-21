@@ -1,7 +1,7 @@
 <template>
   <div class="projects">    
     <div class="project-folder" :class="{hovering: isHoveringOver}">      
-      <div class="project-folder-btn" :class="folderName === 'dashboard' ? 'selected1' : ''" @onComplete="Complete" :to="{name: 'dashboard'}" :from="{name:'Root'}" @click="getFolderName" id="dashboard" @contextmenu.prevent="toggleContextMenu"  draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+      <div class="project-folder-btn" :class="folderName === '/' ? 'selected1' : ''" @onComplete="Complete" :to="{name: 'dashboard'}" :from="{name:'Root'}" @click="getFolderName" id="/" @contextmenu.prevent="toggleContextMenu"  draggable="true" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <i class="project-folder-icon-left material-icons"></i>
         <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Dashboard" :disabled="!isRenaming" ref="nameInput" class="project-folder-title" :class="{ 'is-renaming': isRenaming }" />        
       </div>      
@@ -23,20 +23,20 @@
       </div>      
       <div v-show="isOpen" class="project-row n1"   draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <div class="project-row-btn" :class="folderName === 'customers' ? 'selected3' : ''" @click="getFolderName" id="customers" draggable="false">
-          <i></i>
-          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Customers" :disabled="!isRenaming" ref="titleInput" class="title" />
+          &nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right small"></i>
+          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="   Customers" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
       <div v-show="isOpen" class="project-row n2"   draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <div class="project-row-btn" :class="folderName === 'writers' ? 'selected3' : ''" @click="getFolderName" id="writers" draggable="false">
-          <i></i>
-          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Writers" :disabled="!isRenaming" ref="titleInput" class="title" />
+          &nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right small"></i>
+          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="   Writers" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
       <div v-show="isOpen" class="project-row n3"  draggable="false" @dragstart="onDragStart" @dragover.stop="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
         <div class="project-row-btn" :class="folderName === 'editors' ? 'selected3' : ''" @click="getFolderName" id="editors" draggable="false">
-          <i></i>
-          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="Editors" :disabled="!isRenaming" ref="titleInput" class="title" />
+          &nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right small"></i>
+          <input type="text" @keyup.enter="$event.target.blur()" @blur="saveRename" @keyup.esc="cancelRename" value="   Editors" :disabled="!isRenaming" ref="titleInput" class="title" />
         </div>        
       </div>
     </div>
@@ -92,7 +92,7 @@ export default {
       contextMenuIsOpen: false,
       contextMenuTrigger: null,
       isHoveringOver: false,
-      folderName: null
+      folderName: '/'
     }
   },
   computed: {

@@ -2,10 +2,10 @@
   <div class="paper">
     <div id="title-bar">
       <div class="title">
-        <label> Customers </label>
+        <label> Writers </label>
       </div>
       <div class="right-items">
-        <div><mu-raised-button @click="addCustomerEvent" ref="addReferenceBtn" label="Add Customers" icon="add" primary/></div>
+        <div><mu-raised-button @click="addCustomerEvent" ref="addReferenceBtn" label="Add Writers" icon="add" primary/></div>
         <div><mu-flat-button @click="showImportSheet = true" ref="stylesBtn" label="Import" icon="file_upload" class="outline"/></div>
         <div><mu-flat-button @click="showStylesDialog = true" ref="stylesBtn" label="SpellCheck" icon="spellcheck" class="outline"/></div>
         <div><mu-flat-button @click="showSharesDialog = true" ref="stylesBtn" label="Share" icon="share" class="outline"/></div>
@@ -114,7 +114,7 @@
         </div>
       </div>
     </div>
-    <div id="references">
+    <div id="references" class="project-row">
       <ul mode="out-in">
         <li draggable="true" class="row" v-for="customer in customers">
         <div class="row-body" draggable="false">
@@ -148,10 +148,7 @@
           <button class=" has-tooltip" :id="customer.id">
           <i class="material-icons">more_vert</i>
           </button>
-                           
-        </div>        
-        </li>
-        <mu-popover :anchorOrigin="{vertical:'top', horizontal:'right'}" :targetOrigin="{vertical:'top', horizontal:'right'}" :open="isOption" :trigger="contextMenuTargetOrigin" @close="handleContextMenuClose" style="position:absolute;right:0px">
+          <mu-popover :anchorOrigin="{vertical:'top', horizontal:'right'}" :targetOrigin="{vertical:'top', horizontal:'right'}" :open="isOption" :trigger="contextMenuTargetOrigin" @close="handleContextMenuClose" style="position:absolute;right:0px">
             <mu-menu desktop>
               <mu-menu-item title="Notes" leftIcon="before" @click="copyReferenceToClipboard()" />
               <mu-menu-item title="Copy bibliography entry to clipboard" leftIcon="notes" @click="copyReferenceToClipboard()" />
@@ -163,9 +160,12 @@
               <mu-divider />
               <mu-menu-item title="Delete" leftIcon="delete" @click="deleteReference()" titleClass="red" leftIconClass="red" />
             </mu-menu>
-          </mu-popover> 
+          </mu-popover>                  
+        </div>        
+        </li>
       </ul>      
     </div>
+
   </div>
 </template>
 
@@ -177,13 +177,12 @@ import DownloadOptionsBottomSheet from '@/components/DownloadOptionsBottomSheet'
 import Spinner from '@/components/Spinner';
 import ImportButton from '@/components/ImportButton';
 import TooltipLg from '@/components/TooltipLg';
-import CustomerDialog from '@/components/CustomerDialog';
+
 import _ from 'lodash';
 
 export default {
-  name: 'Customers',
+  name: 'Writers',
   components: {
-    CustomerDialog,
     ProjectViewToolbar,
     ProjectViewReference,
     DownloadOptionsBottomSheet,
@@ -267,9 +266,6 @@ export default {
         this.selectedProject.title = oldProjectTitle;
       }
     },
-    handleContextMenuClose () {
-      this.isOption = false
-    },
     saveCustomer () {
       this.addCustomerButtonChecked = !this.addCustomerButtonChecked;
       console.log(this.password)
@@ -334,6 +330,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../variables.scss';
+.references-toolbar {
+  barckground-color: green!important;
+}
 #title-bar { align-items:center; border-bottom:1px dotted #e9eaed; display:flex; height:94px; justify-content: space-between; margin:0 20px;
     .title { align-items:center; color:#2c3e50; display:flex; flex:1 0 0; font-size:22px; margin-right:10px;
       input { background:transparent; border:1px solid transparent; border-radius:3px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; width:100%;

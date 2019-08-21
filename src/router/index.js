@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import qs from 'qs';
 
-import Root from '@/components/Root';
 import ProjectView from '@/components/ProjectView';
 import NewReferenceSearch from '@/components/NewReferenceSearch';
 import NewReference from '@/components/NewReference';
@@ -14,6 +13,8 @@ import SettingsChangePassword from '@/components/SettingsChangePassword';
 import DashBoard from '@/components/DashBoard';
 import Profile from '@/components/Profile';
 import Customers from '@/components/Customers';
+import Writers from '@/components/Writers';
+import Editors from '@/components/Editors';
 
 Vue.use(Router);
 
@@ -21,11 +22,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Root',
-      component: Root
-    },
-    {
-      path: '/dashboard',
       name: 'DashBoard',
       component: DashBoard
     },
@@ -38,6 +34,16 @@ export default new Router({
       path: '/customers',
       name: 'Customers',
       component: Customers
+    },
+    {
+      path: '/writers',
+      name: 'Writers',
+      component: Writers
+    },
+    {
+      path: '/editors',
+      name: 'Editors',
+      component: Editors
     },
     {
       path: '/settings',

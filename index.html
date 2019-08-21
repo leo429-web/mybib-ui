@@ -20,15 +20,22 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="<%- htmlWebpackPlugin.options.assetsPublicPath%>static/fonts.css" rel="stylesheet">
+  <!-- <link href="<%- htmlWebpackPlugin.options.assetsPublicPath%>static/fonts.css" rel="stylesheet"> -->
   <link href="<%- htmlWebpackPlugin.options.assetsPublicPath%>static/muse-ui.css" rel="stylesheet">
   <link href="<%- htmlWebpackPlugin.options.assetsPublicPath%>static/muse-ui-theme-light.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/assets/font-awesome/css/font-awesome.css">
+  
   
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://apis.google.com/js/api.js"></script>
+  <script src="static/script/data-tables/jquery.dataTables.js"></script>
+
+  <script src="static/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script src="static/script/custom.js"></script>
+  
   <script>
     window.gapi = gapi;
   </script>
@@ -175,5 +182,9 @@
     </div>
   </div>
 </body>
-
+<script>
+  jQuery(document).ready(function () {
+    App.init();
+  });
+</script>
 </html>
