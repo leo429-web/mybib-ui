@@ -8,15 +8,6 @@
           <span>Bib</span>
         </router-link>
       </div>
-      <div class="apps">
-        <div style="background:#2a3c4e; color:#fff; border-radius:100px; padding: 2px 14px; ">
-          {{$t('References')}}
-        </div>
-        <div style="filter:grayscale(100%); opacity:0.5;">
-          <span>Notecards</span>
-          <sup>Coming soon</sup>
-        </div>
-      </div>
     </div>
     <ul class="right-items">
       <li>
