@@ -117,7 +117,6 @@ export default {
 </script>
 
 <style lang="css">
-  @import '../../assets/plugins/font-awesome/css/font-awesome.min.css';
   .page-content {
     padding: 0 2%;
   }
