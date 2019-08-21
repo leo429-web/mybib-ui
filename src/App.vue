@@ -8,7 +8,7 @@
         <div style="font-size:140px;">☹️</div>
         <div style="font-size:40px; font-weight:500; text-align:center;">Oh snap! Something went wrong, please reload the page.</div>
       </div>
-      <template v-if="">
+      <template>
         <sidebar-menu
           @toggle-collapse="onToggleCollapse"
           @item-click="onItemClick"
