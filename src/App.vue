@@ -10,10 +10,6 @@
       </div>
       <template v-if="">
         <sidebar-menu
-          :menu="menu"
-          :collapsed="collapsed"
-          :theme="selectedTheme"
-          :show-one-child="true"
           @toggle-collapse="onToggleCollapse"
           @item-click="onItemClick"
         />
@@ -73,68 +69,6 @@ export default {
       showSupportDialog: false,
       extrasMenuTrigger: null,
       extrasMenuIsOpen: false,
-      menu: [
-        {
-          header: true,
-          title: 'Getting Started',
-          hiddenOnCollapse: true
-        },
-        {
-          href: '/dashboard',
-          title: 'Dashboard'
-        },
-        {
-          href: '/profile',
-          title: 'My Profile'
-        },
-        {
-          href: '/users',
-          title: 'Users',
-          icon: 'fa fa-folder',
-          child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Customers',
-              icon: 'fa fa-file-alt'
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Writers',
-              icon: 'fa fa-file-alt'
-            },
-            {
-              href: '/page/sub-page-3',
-              title: 'Editers',
-              icon: 'fa fa-file-alt'
-            }
-          ]
-        },
-        {
-          href: '/courses',
-          title: 'Courses',
-          icon: 'fa fa-cogs'
-        },
-        {
-          href: '/stream',
-          title: 'Activity Stream'
-        },
-        {
-          href: '/messages',
-          title: 'Messages'
-        },
-        {
-          href: '/payment',
-          title: 'Payment'
-        },
-        {
-          href: '/referrals',
-          title: 'Referrals'
-        },
-        {
-          href: '/settings',
-          title: 'Settings'
-        }
-      ],
       collapsed: false,
       themes: [
         {
@@ -220,7 +154,7 @@ export default {
 
   main { bottom:0; left:0; position:fixed; right:0; top:62px; }
 
-  #page { bottom:0; left:304px; position:absolute; top:0; right:0;
+  #page { bottom:0; left:237px; position:absolute; top:0; right:0;
     > div { bottom:0; left:0; overflow-x:hidden; overflow-y:auto; position:absolute; right:0; top:0; }
     .paper { background:#ffffff; box-shadow:0 0 3px rgba(0,0,0,0.2);
       h1 { align-items:center; display:flex; font-weight:400; font-size:22px; justify-content:center; margin:20px 0 40px; }

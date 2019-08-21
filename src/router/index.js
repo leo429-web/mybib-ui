@@ -11,6 +11,9 @@ import ReferenceNotes from '@/components/ReferenceNotes';
 import ImportReferences from '@/components/ImportReferences';
 import Settings from '@/components/Settings';
 import SettingsChangePassword from '@/components/SettingsChangePassword';
+import DashBoard from '@/components/DashBoard';
+import Profile from '@/components/Profile';
+import Customers from '@/components/Customers';
 
 Vue.use(Router);
 
@@ -20,6 +23,21 @@ export default new Router({
       path: '/',
       name: 'Root',
       component: Root
+    },
+    {
+      path: '/dashboard',
+      name: 'DashBoard',
+      component: DashBoard
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
+    },
+    {
+      path: '/customers',
+      name: 'Customers',
+      component: Customers
     },
     {
       path: '/settings',
@@ -75,7 +93,7 @@ export default new Router({
     return qs.parse(query);
   },
   stringifyQuery (query) {
-    let result = qs.stringify(query, {encodeValuesOnly: true});
+    let result = qs.stringify(query, { encodeValuesOnly: true });
 
     return result ? ('?' + result) : '';
   }
